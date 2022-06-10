@@ -1,0 +1,17 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav position="end">
+	  <mat-nav-list (click)="sidenav.close()">
+		  <a mat-list-item [routerLink]="item.routerLink" *ngFor="let item of toolbarItems">{{item.title}}</a>
+	  </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+		<a class="logo text-light" routerLink=".">{{title}}</a>
+		  <button class="toolbar-item" mat-button [routerLink]="item.routerLink" *ngFor="let item of toolbarItems">{{item.title}}</button>
+		<div class="spacer"></div>
+			<button class="menu-btn" mat-icon-button (click)="sidenav.open()"><mat-icon>menu</mat-icon></button>
+	</mat-toolbar>
+	  <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
